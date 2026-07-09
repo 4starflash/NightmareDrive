@@ -12,6 +12,4 @@ public class ShooterController : MonoBehaviour
     {
         OnShootBullet?.Invoke(bulletPrefab);
     }
-
-
 }
