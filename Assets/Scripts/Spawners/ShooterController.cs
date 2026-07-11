@@ -8,8 +8,18 @@ public class ShooterController : MonoBehaviour
 
     public static event Action<GameObject> OnShootBullet;
 
-    private void Start()
+    [SerializeField] private float firingRate = 1f;
+    private float timer;
+
+
+    private void Update()
     {
-        OnShootBullet?.Invoke(bulletPrefab);
+        timer += Time.deltaTime;
+
+        if (timer >= firingRate)
+        {
+            OnShootBullet?.Invoke(bulletPrefab);
+            timer = 0;
+        }
     }
 }

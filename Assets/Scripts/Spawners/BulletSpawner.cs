@@ -1,11 +1,15 @@
 using UnityEngine;
-using System;
 
-public class BulletShooter : MonoBehaviour
+public class BulletSpawner : MonoBehaviour
 {
+    enum ShooterType { SingleShot, MultiShot }
+    [SerializeField] private ShooterType shooterType;
+
     [Header("Spawn Settings")]
     [SerializeField] private int numberOfBullets = 8;
     [SerializeField] private float radius = 3f;
+    [SerializeField] private bool aimAtPlayer;
+    [SerializeField] private float firingRate = .2f;
 
     [Header("Shooter Attributes")]
     [SerializeField] private Transform firePoint;
@@ -13,24 +17,53 @@ public class BulletShooter : MonoBehaviour
     private float m_startAngle;
     [SerializeField] private Transform target;
 
+    [Header("Bullet")]
+    [SerializeField] private GameObject bulletPrefab;
+
+    private float m_timer;
+
     private void Start()
     {
         m_startAngle = -spreadAngle / 2f;
     }
 
-    private void OnEnable()
-    {
-        ShooterController.OnShootBullet += ShootSpreadOfBullets;
-    }
-
-    private void Disable()
-    {
-        ShooterController.OnShootBullet -= ShootSpreadOfBullets;
-    }
-
     private void Update()
     {
-        AimAtPlayer();
+        if ((aimAtPlayer))
+        {
+            AimAtPlayer();
+        }
+
+        m_timer += Time.deltaTime;
+        if (m_timer >= firingRate)
+        {
+            if (shooterType == ShooterType.SingleShot)
+            {
+                ShootSingleShot();
+            }
+            else if (shooterType == ShooterType.MultiShot)
+            {
+                ShootSpreadOfBullets();
+            }
+
+            m_timer = 0;
+        } 
+    }
+
+    private void ShootSingleShot()
+    {
+        if(target != null)
+        {
+            Vector3 direction = target.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion bulletRotation = Quaternion.Euler(0, 0, angle);
+
+            Instantiate(bulletPrefab, firePoint.position, bulletRotation);
+        }
+        else
+        {
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        }
     }
 
     // Shoots a ring of bullets
@@ -54,7 +87,7 @@ public class BulletShooter : MonoBehaviour
     }
 
     // Shoots a spread of bullets with the specified angle
-    private void ShootSpreadOfBullets(GameObject bulletPrefab)
+    private void ShootSpreadOfBullets()
     {
         float angleStep = spreadAngle / (numberOfBullets - 1);
 

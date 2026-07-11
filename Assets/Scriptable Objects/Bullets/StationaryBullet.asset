@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58625bf2d1c29f140bbfb45347508e9d, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 4b00c1fb6308abe44bcbc983194791ec, type: 3}
+  m_Name: StationaryBullet
   m_EditorClassIdentifier: 
-  m_playerDataClass:
-    m_playerHp: 100
-    m_playerSpeed: 5
+  m_bulletDataClass:
+    m_bulletSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    m_bulletSpeed: 0

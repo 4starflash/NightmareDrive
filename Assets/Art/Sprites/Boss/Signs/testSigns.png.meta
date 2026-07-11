@@ -1,0 +1,668 @@
+fileFormatVersion: 2
+guid: bda285e1dd5290e479f3a9b389573a69
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: testSigns_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3129
+        width: 628
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81175f2b5b45d1449935ff0e9eadf94e
+      internalID: 305841049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_1
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 3097
+        width: 728
+        height: 956
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd15ba54aeb46149b7c4e48bb9b6227
+      internalID: -903457067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_2
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 3121
+        width: 1100
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef51164f0dc85dd44b2215df3f183e1e
+      internalID: 68536177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_3
+      rect:
+        serializedVersion: 2
+        x: 4210
+        y: 4050
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28133f8f9cb3b6c44b497c2094951d3c
+      internalID: -1001179922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_4
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 3104
+        width: 690
+        height: 943
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cf77df4a3e5d44586ec50abf09df85
+      internalID: 650100347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_5
+      rect:
+        serializedVersion: 2
+        x: 3987
+        y: 3108
+        width: 1095
+        height: 869
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75276b08cea320408407117a643bd63
+      internalID: -316589467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_6
+      rect:
+        serializedVersion: 2
+        x: 5324
+        y: 3324
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd62b075d8121d4ea233f70c64e9528
+      internalID: -978484139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2899
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ca0693b8a34334a9e68726130300b2
+      internalID: -1054290363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_8
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 2891
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e6ddf245628c544b8b07c64a9d2d06
+      internalID: 1054411604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_9
+      rect:
+        serializedVersion: 2
+        x: 2792
+        y: 2866
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201b1b8ac1de5944b920f3dbfa42373b
+      internalID: 226311934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_10
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1948
+        width: 1078
+        height: 778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10db48159e8b02241a16c4ad8eed0f4a
+      internalID: -513482151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_11
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1948
+        width: 1063
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e4d7381b44a63418ab5780a39c83a4
+      internalID: -1958474516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_12
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 1947
+        width: 823
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf616c49cd5184b4785bfff47fd1b336
+      internalID: -1613928329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_13
+      rect:
+        serializedVersion: 2
+        x: 3901
+        y: 1953
+        width: 537
+        height: 867
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a691fcf8ee48ce04fb4ad115391ee44e
+      internalID: 1542843220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_14
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 842
+        width: 126
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be5fc0ea2581254bb25e23cacb805d9
+      internalID: -1885115165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_15
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 858
+        width: 137
+        height: 145
+      alignment: 9
+      pivot: {x: 0.5231435, y: 0.23760818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc539ceb9aaa2934483eea65cae4a1f5
+      internalID: -102883058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_16
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 839
+        width: 290
+        height: 1004
+      alignment: 9
+      pivot: {x: 0.6749284, y: 0.042097967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c62e91a6dffcb43ba7c9af57ae0481
+      internalID: -343983974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_17
+      rect:
+        serializedVersion: 2
+        x: 2580
+        y: 834
+        width: 289
+        height: 923
+      alignment: 9
+      pivot: {x: 0.68650484, y: 0.043134596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9092825848cdc243af76e9c81f8d99b
+      internalID: -1071863515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_18
+      rect:
+        serializedVersion: 2
+        x: 3162
+        y: 844
+        width: 196
+        height: 899
+      alignment: 9
+      pivot: {x: 0.64558876, y: 0.034464765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b13c39278214742bf404e60d973a5e
+      internalID: 1807720958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_19
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 836
+        width: 156
+        height: 752
+      alignment: 9
+      pivot: {x: 0.5812973, y: 0.04043506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14737cb93da0464ea150c15344b9f4a
+      internalID: -1019832875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_20
+      rect:
+        serializedVersion: 2
+        x: 3989
+        y: 856
+        width: 135
+        height: 533
+      alignment: 9
+      pivot: {x: 0.5998264, y: 0.049090818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59187ac8ccb2f624e992a26539e15456
+      internalID: -1327750424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_21
+      rect:
+        serializedVersion: 2
+        x: 4261
+        y: 852
+        width: 128
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5350914, y: 0.12720056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1812ed08642f98418b5bdd1c9515704
+      internalID: -754861894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_22
+      rect:
+        serializedVersion: 2
+        x: 4508
+        y: 845
+        width: 94
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5477892, y: 0.24145377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6331ae9cbffedae42b2a4554c2d950e3
+      internalID: 1693660859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSigns_23
+      rect:
+        serializedVersion: 2
+        x: 4712
+        y: 852
+        width: 61
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596e94b23241f4344aa03b84fa6844ca
+      internalID: -1654992391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      testSigns_0: 305841049
+      testSigns_1: -903457067
+      testSigns_10: -513482151
+      testSigns_11: -1958474516
+      testSigns_12: -1613928329
+      testSigns_13: 1542843220
+      testSigns_14: -1885115165
+      testSigns_15: -102883058
+      testSigns_16: -343983974
+      testSigns_17: -1071863515
+      testSigns_18: 1807720958
+      testSigns_19: -1019832875
+      testSigns_2: 68536177
+      testSigns_20: -1327750424
+      testSigns_21: -754861894
+      testSigns_22: 1693660859
+      testSigns_23: -1654992391
+      testSigns_3: -1001179922
+      testSigns_4: 650100347
+      testSigns_5: -316589467
+      testSigns_6: -978484139
+      testSigns_7: -1054290363
+      testSigns_8: 1054411604
+      testSigns_9: 226311934
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
