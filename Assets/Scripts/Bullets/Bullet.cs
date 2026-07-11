@@ -3,20 +3,24 @@ using System;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private BulletData bulletData;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private BulletData m_bulletData;
+    [SerializeField] private Rigidbody2D m_rb;
 
     [Header("Reflect Settings")]
-    private float bulletRadius;
-    [SerializeField] private LayerMask reflectableLayer;
     public bool reflected = false;
+    [SerializeField] private float m_rotationSpeed = 800f;
 
 
     private void FixedUpdate()
     {
         if(!reflected)
         {
-            rb.AddForce(transform.up * bulletData.bulletDataClass.bulletSpeed);
+            m_rb.AddForce(transform.up * m_bulletData.bulletDataClass.bulletSpeed);
+        }
+
+        if (reflected)
+        {
+            transform.Rotate(Vector3.forward * m_rotationSpeed * Time.deltaTime);
         }
     }
 

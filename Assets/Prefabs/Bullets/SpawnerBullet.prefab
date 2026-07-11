@@ -194,12 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc2a4ce60dc7e499559677694503f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: 6af854d03d02c3648b0a871693c477bc, type: 2}
-  rb: {fileID: 4893404054193504399}
-  reflectableLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  m_bulletData: {fileID: 11400000, guid: 6af854d03d02c3648b0a871693c477bc, type: 2}
+  m_rb: {fileID: 4893404054193504399}
   reflected: 0
+  m_rotationSpeed: 0
 --- !u!114 &1420237519032904573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,12 +210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e859262cd656b4ea8a7e36070dcde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterType: 0
-  numberOfBullets: 1
-  radius: 3
-  aimAtPlayer: 0
-  firingRate: 0.3
-  firePoint: {fileID: 3660989512510541623}
-  spreadAngle: 360
-  target: {fileID: 0}
-  bulletPrefab: {fileID: 7721611615409789395, guid: 3cb68f7b28397984593780fcf645f079, type: 3}
+  m_shooterType: 0
+  m_numberOfBullets: 8
+  m_radius: 3
+  m_aimAtPlayer: 0
+  m_firingRate: 0.2
+  m_firePoint: {fileID: 0}
+  m_spreadAngle: 30
+  m_target: {fileID: 0}
+  m_bulletPrefab: {fileID: 0}

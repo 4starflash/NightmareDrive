@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    [SerializeField] private BulletData bulletData;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private bool flipped;
+    [SerializeField] private BulletData m_bulletData;
+    [SerializeField] private Rigidbody2D m_rb;
+    [SerializeField] private bool m_flipped;
 
     private void FixedUpdate()
     {
-        if (!flipped)
+        if (!m_flipped)
         {
-            rb.velocity = transform.right * bulletData.bulletDataClass.bulletSpeed;
+            m_rb.velocity = transform.right * m_bulletData.bulletDataClass.bulletSpeed;
         }
         else
         {
-            rb.velocity = -transform.right * bulletData.bulletDataClass.bulletSpeed;
+            m_rb.velocity = -transform.right * m_bulletData.bulletDataClass.bulletSpeed;
         }
     }
 

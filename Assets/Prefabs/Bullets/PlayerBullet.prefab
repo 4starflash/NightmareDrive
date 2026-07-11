@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0172ff262c20e14d8694c3450ed5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: 2487c7a4e2f56c5448e07de14761cee5, type: 2}
-  rb: {fileID: 8842540672832050025}
-  flipped: 0
+  m_bulletData: {fileID: 11400000, guid: 2487c7a4e2f56c5448e07de14761cee5, type: 2}
+  m_rb: {fileID: 8842540672832050025}
+  m_flipped: 0

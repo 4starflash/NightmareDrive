@@ -122,37 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &106321035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 106321036}
-  m_Layer: 0
-  m_Name: Firepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &106321036
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106321035}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1197849008}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139425322
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +265,7 @@ GameObject:
   - component: {fileID: 211820993}
   - component: {fileID: 211820992}
   - component: {fileID: 211820991}
+  - component: {fileID: 211820996}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -315,17 +285,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd2dbd83bf3aa948902b36c80ceb181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: f5dac15032f4efe48adf9f2f920eee3e, type: 2}
-  rb: {fileID: 211820993}
-  reflectForce: 15
-  reflectRadius: 1.5
-  reflectableLayer:
+  m_playerData: {fileID: 11400000, guid: f5dac15032f4efe48adf9f2f920eee3e, type: 2}
+  m_rb: {fileID: 211820993}
+  m_reflectForce: 20
+  m_reflectRadius: 2
+  m_reflectableLayer:
     serializedVersion: 2
     m_Bits: 64
-  leftFacingBullet: {fileID: 5889902201681044481, guid: 581767430999d144ca62aa94b0db0fab, type: 3}
-  rightFacingBullet: {fileID: 5889902201681044481, guid: fe72123d46bcc414c8aca63d0dc36424, type: 3}
-  firepoint: {fileID: 391833577}
-  firingRate: 0.2
+  m_leftFacingBullet: {fileID: 5889902201681044481, guid: 581767430999d144ca62aa94b0db0fab, type: 3}
+  m_rightFacingBullet: {fileID: 5889902201681044481, guid: fe72123d46bcc414c8aca63d0dc36424, type: 3}
+  m_firepoint: {fileID: 391833577}
+  m_firingRate: 0.2
 --- !u!70 &211820992
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -456,6 +426,19 @@ Transform:
   - {fileID: 391833577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211820996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211820990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b28a345a59bb64ab0155b854ad76b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerData: {fileID: 11400000, guid: f5dac15032f4efe48adf9f2f920eee3e, type: 2}
 --- !u!1 &217278416
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,8 +959,8 @@ GameObject:
   m_Component:
   - component: {fileID: 845999699}
   - component: {fileID: 845999698}
-  - component: {fileID: 845999697}
   - component: {fileID: 845999700}
+  - component: {fileID: 845999697}
   m_Layer: 0
   m_Name: 9-Sliced (1)
   m_TagString: Enemy
@@ -997,15 +980,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e859262cd656b4ea8a7e36070dcde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterType: 0
-  numberOfBullets: 7
-  radius: 5
-  aimAtPlayer: 1
-  firingRate: 3
-  firePoint: {fileID: 1290328273}
-  spreadAngle: 360
-  target: {fileID: 211820995}
-  bulletPrefab: {fileID: 5869093242434486975, guid: 3a913ab7fa799324aa5d5004ba5762bb, type: 3}
+  m_shooterType: 1
+  m_numberOfBullets: 7
+  m_radius: 3
+  m_aimAtPlayer: 1
+  m_firingRate: 0.3
+  m_firePoint: {fileID: 1290328273}
+  m_spreadAngle: 70
+  m_target: {fileID: 211820995}
+  m_bulletPrefab: {fileID: 7721611615409789395, guid: a1bc2bb4ab11df045b9d13283681c345, type: 3}
 --- !u!212 &845999698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1274,149 +1257,6 @@ Transform:
   - {fileID: 942551107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1197849005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1197849008}
-  - component: {fileID: 1197849007}
-  - component: {fileID: 1197849006}
-  - component: {fileID: 1197849009}
-  m_Layer: 0
-  m_Name: 9-Sliced (2)
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1197849006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197849005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e859262cd656b4ea8a7e36070dcde3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shooterType: 1
-  numberOfBullets: 6
-  radius: 5
-  aimAtPlayer: 1
-  firingRate: 3
-  firePoint: {fileID: 106321036}
-  spreadAngle: 90
-  target: {fileID: 211820995}
-  bulletPrefab: {fileID: 7721611615409789395, guid: a1bc2bb4ab11df045b9d13283681c345, type: 3}
---- !u!212 &1197849007
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197849005}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1197849008
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197849005}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 3.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 106321036}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1197849009
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197849005}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!1 &1290328272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,5 +1296,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1038554747}
   - {fileID: 845999699}
-  - {fileID: 1197849008}
   - {fileID: 211820995}

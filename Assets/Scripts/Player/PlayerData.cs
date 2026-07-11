@@ -1,18 +1,16 @@
 using UnityEngine;
-using System;
-
-[System.Serializable]
-public class PlayerDataClass
-{
-    [SerializeField] private float m_playerHp;
-    public float playerHp { get { return m_playerHp; } }
-    [SerializeField] private float m_playerSpeed;
-    public float playerSpeed { get { return m_playerSpeed; } }
-}
+using System.Collections;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
 public class PlayerData : ScriptableObject
 {
-    [SerializeField] private PlayerDataClass m_playerDataClass;
-    public PlayerDataClass playerDataClass { get { return m_playerDataClass; } }
+    [SerializeField] private int m_maxHealth;
+    public int maxHealth { get { return m_maxHealth; } }
+
+    [ReadOnly][SerializeField] private int m_currentHealth;
+    public int currentHealth { get => m_currentHealth; set => m_currentHealth = value; }
+
+    [SerializeField] private float m_playerSpeed;
+    public float playerSpeed { get { return m_playerSpeed; } }
 }

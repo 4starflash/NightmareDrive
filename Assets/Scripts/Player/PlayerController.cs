@@ -4,20 +4,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Components")]
-    [SerializeField] private PlayerData playerData;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private PlayerData m_playerData;
+    [SerializeField] private Rigidbody2D m_rb;
 
     [Header("Reflect Ability Settings")]
-    [SerializeField] private float reflectForce = 20f;
-    [SerializeField] private float reflectRadius = 3f;
-    [SerializeField] private LayerMask reflectableLayer;
+    [SerializeField] private float m_reflectForce = 20f;
+    [SerializeField] private float m_reflectRadius = 3f;
+    [SerializeField] private LayerMask m_reflectableLayer;
 
     [Header("Player Bullet")]
-    [SerializeField] private GameObject leftFacingBullet;
-    [SerializeField] private GameObject rightFacingBullet;
-    [SerializeField] private Transform firepoint;
+    [SerializeField] private GameObject m_leftFacingBullet;
+    [SerializeField] private GameObject m_rightFacingBullet;
+    [SerializeField] private Transform m_firepoint;
     private float m_timer;
-    [SerializeField] private float firingRate = 0.2f;
+    [SerializeField] private float m_firingRate = 0.2f;
 
     private Vector2 m_movementInput;
     private bool m_flipped;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         m_timer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Z))
         {
-            if (m_timer >= firingRate)
+            if (m_timer >= m_firingRate)
             {
                 Shoot();
                 m_timer = 0;
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(m_movementInput.x * playerData.playerDataClass.playerSpeed, m_movementInput.y * playerData.playerDataClass.playerSpeed);
+        m_rb.velocity = new Vector2(m_movementInput.x * m_playerData.playerSpeed, m_movementInput.y * m_playerData.playerSpeed);
     }
 
     private void FlipPlayer()
@@ -72,17 +72,17 @@ public class PlayerController : MonoBehaviour
     {
         if (!m_flipped)
         {
-            GameObject bullet = Instantiate(rightFacingBullet, firepoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(m_rightFacingBullet, m_firepoint.position, Quaternion.identity);
         }
         else if(m_flipped)
         {
-            GameObject bullet = Instantiate(leftFacingBullet, firepoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(m_leftFacingBullet, m_firepoint.position, Quaternion.identity);
         }
     }
 
     private void ReflectBullets()
     {
-        Collider2D[] bulletsInRange = Physics2D.OverlapCircleAll(transform.position, reflectRadius, reflectableLayer);
+        Collider2D[] bulletsInRange = Physics2D.OverlapCircleAll(transform.position, m_reflectRadius, m_reflectableLayer);
 
         foreach (Collider2D hit in bulletsInRange)
         {
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
                 Vector2 direction = (rb.position - (Vector2)transform.position).normalized;
 
-                rb.AddForce(direction * reflectForce, ForceMode2D.Impulse);
+                rb.AddForce(direction * m_reflectForce, ForceMode2D.Impulse);
             }
 
             if(bullet != null)
@@ -108,6 +108,6 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, reflectRadius);
+        Gizmos.DrawWireSphere(transform.position, m_reflectRadius);
     }
 }
