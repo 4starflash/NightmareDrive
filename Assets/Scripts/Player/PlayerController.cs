@@ -36,11 +36,11 @@ public class PlayerController : MonoBehaviour
         m_movementInput.y = Input.GetAxisRaw("Vertical");
         m_movementInput = m_movementInput.normalized;
 
-        if (m_rb.velocity != Vector2.zero && m_playerData.currentState != PlayerState.Attacking)
+        if (m_rb.velocity != Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
         {
             SetCurrentState(PlayerState.Running);
         }
-        else if(m_rb.velocity == Vector2.zero && m_playerData.currentState != PlayerState.Attacking)
+        else if(m_rb.velocity == Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
         {
             SetCurrentState(PlayerState.Idle);
         }
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         // X to reflect or parry
         if (Input.GetKeyDown(KeyCode.X))
         {
-            ReflectBullets();
+            SetCurrentState(PlayerState.Reflecting);
         }
 
         // X to shoot bullets
@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Running:
                 m_anim.SetBool("run", true);
+                break;
+            case PlayerState.Reflecting:
+                m_anim.SetTrigger("reflect");
                 break;
             case PlayerState.Attacking:
                 m_anim.SetTrigger("melee");
