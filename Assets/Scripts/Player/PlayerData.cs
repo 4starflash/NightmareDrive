@@ -5,12 +5,16 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
 public class PlayerData : ScriptableObject
 {
-    [SerializeField] private int m_maxHealth;
-    public int maxHealth { get { return m_maxHealth; } }
+    [SerializeField] private float m_maxHealth;
+    public float maxHealth { get { return m_maxHealth; } }
 
-    [ReadOnly][SerializeField] private int m_currentHealth;
-    public int currentHealth { get => m_currentHealth; set => m_currentHealth = value; }
+    [ReadOnly][SerializeField] private float m_currentHealth;
+    public float currentHealth { get => m_currentHealth; set => m_currentHealth = value; }
 
     [SerializeField] private float m_playerSpeed;
     public float playerSpeed { get { return m_playerSpeed; } }
+
+    [ReadOnly][SerializeField] private PlayerState m_currentState;
+    public PlayerState currentState { get { return m_currentState; } set { m_currentState = value; } }
+
 }
