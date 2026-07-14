@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerBullet
   m_EditorClassIdentifier: 
   m_bulletDataClass:
-    m_bulletSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     m_bulletSpeed: 15
+    m_bulletDuration: 2

@@ -4,10 +4,11 @@ using System;
 [System.Serializable]
 public class BulletDataClass
 {
-    [SerializeField] private Sprite m_bulletSprite;
-    public Sprite bulletSprite { get { return m_bulletSprite; } }
     [SerializeField] private float m_bulletSpeed;
     public float bulletSpeed { get { return m_bulletSpeed; } }
+
+    [SerializeField] private float m_bulletDuration;
+    public float bulletDuration { get { return m_bulletDuration; } }
 }
 
 [CreateAssetMenu(fileName = "BulletData", menuName = "Scriptable Objects/BulletData")]

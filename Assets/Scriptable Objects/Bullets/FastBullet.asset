@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b00c1fb6308abe44bcbc983194791ec, type: 3}
-  m_Name: BulletData
+  m_Name: FastBullet
   m_EditorClassIdentifier: 
   m_bulletDataClass:
-    m_bulletSpeed: 10
+    m_bulletSpeed: 15
     m_bulletDuration: 2

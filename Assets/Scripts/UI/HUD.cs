@@ -9,12 +9,12 @@ public class HUD : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealth.OnHealthChange += UpdateHealthBar;
+        PlayerController.OnHealthChange += UpdateHealthBar;
     }
 
     private void Disable()
     {
-        PlayerHealth.OnHealthChange -= UpdateHealthBar;
+        PlayerController.OnHealthChange -= UpdateHealthBar;
     }
 
     private void UpdateHealthBar(float healthRatio)

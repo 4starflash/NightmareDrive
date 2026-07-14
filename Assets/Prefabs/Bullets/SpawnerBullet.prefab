@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bulletData: {fileID: 11400000, guid: 6af854d03d02c3648b0a871693c477bc, type: 2}
   m_rb: {fileID: 4893404054193504399}
+  m_constantSpeed: 1
   reflected: 0
   m_rotationSpeed: 0
 --- !u!114 &1420237519032904573

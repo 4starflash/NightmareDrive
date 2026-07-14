@@ -24,64 +24,73 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_movementInput;
     private bool m_flipped;
-    
+
+    public static Action<float> OnHealthChange;
+
     private void Start()
     {
+        m_playerData.currentHealth = m_playerData.maxHealth;
         SetCurrentState(PlayerState.Idle);
     }
 
     private void Update()
     {
-        m_movementInput.x = Input.GetAxisRaw("Horizontal");
-        m_movementInput.y = Input.GetAxisRaw("Vertical");
-        m_movementInput = m_movementInput.normalized;
+        if(m_playerData.currentState != PlayerState.Dead)
+        {
+            m_movementInput.x = Input.GetAxisRaw("Horizontal");
+            m_movementInput.y = Input.GetAxisRaw("Vertical");
+            m_movementInput = m_movementInput.normalized;
 
-        if (m_rb.velocity != Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
-        {
-            SetCurrentState(PlayerState.Running);
-        }
-        else if(m_rb.velocity == Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
-        {
-            SetCurrentState(PlayerState.Idle);
-        }
-
-        // Flip player when turning
-        if (m_movementInput.x > 0 && m_flipped)
-        {
-            FlipPlayer();
-        }
-        else if (m_movementInput.x < 0 && !m_flipped)
-        {
-            FlipPlayer();
-        }
-
-        // X to reflect or parry
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            SetCurrentState(PlayerState.Reflecting);
-        }
-
-        // X to shoot bullets
-        m_timer += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Z))
-        {
-            if (m_timer >= m_firingRate)
+            if (m_rb.velocity != Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
             {
-                Shoot();
-                m_timer = 0;
+                SetCurrentState(PlayerState.Running);
             }
-        }
+            else if (m_rb.velocity == Vector2.zero && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
+            {
+                SetCurrentState(PlayerState.Idle);
+            }
 
-        // C to melee
-        if (Input.GetKeyDown(KeyCode.C) && m_playerData.currentState != PlayerState.Attacking)
-        {
-            SetCurrentState(PlayerState.Attacking);
+            // Flip player when turning
+            if (m_movementInput.x > 0 && m_flipped && m_playerData.currentState != PlayerState.Attacking)
+            {
+                FlipPlayer();
+            }
+            else if (m_movementInput.x < 0 && !m_flipped && m_playerData.currentState != PlayerState.Attacking)
+            {
+                FlipPlayer();
+            }
+
+            // X to reflect or parry
+            if (Input.GetKeyDown(KeyCode.X) && m_playerData.currentState != PlayerState.Reflecting && m_playerData.currentState != PlayerState.Attacking)
+            {
+                SetCurrentState(PlayerState.Reflecting);
+            }
+
+            // X to shoot bullets
+            m_timer += Time.deltaTime;
+            if (Input.GetKey(KeyCode.Z))
+            {
+                if (m_timer >= m_firingRate)
+                {
+                    Shoot();
+                    m_timer = 0;
+                }
+            }
+
+            // C to melee
+            if (Input.GetKeyDown(KeyCode.C) && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
+            {
+                SetCurrentState(PlayerState.Attacking);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        m_rb.velocity = new Vector2(m_movementInput.x * m_playerData.playerSpeed, m_movementInput.y * m_playerData.playerSpeed);
+        if(m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Dead)
+        {
+            m_rb.velocity = new Vector2(m_movementInput.x * m_playerData.playerSpeed, m_movementInput.y * m_playerData.playerSpeed);
+        }
     }
 
     private void SetCurrentState(PlayerState state)
@@ -98,9 +107,14 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Reflecting:
                 m_anim.SetTrigger("reflect");
+                m_rb.velocity = Vector2.zero;
                 break;
             case PlayerState.Attacking:
                 m_anim.SetTrigger("melee");
+                m_rb.velocity = Vector2.zero;
+                break;
+            case PlayerState.Dead:
+                PlayerDeath();
                 break;
         }
     }
@@ -160,6 +174,41 @@ public class PlayerController : MonoBehaviour
             {
                 bullet.reflected = true;
             }
+        }
+    }
+
+    private void UpdateHealth(int value)
+    {
+        if (m_playerData.currentHealth - value < 0)
+        {
+            m_playerData.currentHealth = 0;
+        }
+        else
+        {
+            m_playerData.currentHealth -= value;
+        }
+
+        float currentRatio = m_playerData.currentHealth / m_playerData.maxHealth;
+        OnHealthChange?.Invoke(currentRatio);
+
+        if (m_playerData.currentHealth == 0)
+        {
+            SetCurrentState(PlayerState.Dead);
+        }
+    }
+
+    private void PlayerDeath()
+    {
+        m_anim.SetBool("dead", true);
+        m_anim.SetBool("run", false);
+        m_rb.velocity = Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("DamageSource") && m_playerData.currentState != PlayerState.Attacking)
+        {
+            UpdateHealth(10);
         }
     }
 
