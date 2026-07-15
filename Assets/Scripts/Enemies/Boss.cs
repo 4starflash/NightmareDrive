@@ -9,18 +9,34 @@ public abstract class Boss : MonoBehaviour
 {
     [Header("Boss Components")]
     [SerializeField] protected BossData m_bossData;
-    [SerializeField] protected Animator anim;
-    [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected Animator m_anim;
+    [SerializeField] protected Rigidbody2D m_rb;
+    [SerializeField] protected BossBulletShooter m_bulletShooter;
+
+    [Header("Boss References")]
+    [SerializeField] protected Transform m_target;
+    [ReadOnly][SerializeField] protected float m_stateTime;
 
     protected virtual void Update()
     {
         UpdateState();
+        UpdateStateTime();
     }
 
     protected abstract void UpdateState();
 
+    protected void UpdateStateTime()
+    {
+        m_stateTime += Time.deltaTime;
+    }
+
     protected void SetCurrentState(BossState state)
     {
+        if(m_bossData.currentState != state)
+        {
+            m_stateTime = 0;
+        }
+
         m_bossData.currentState = state;
 
         switch (m_bossData.currentState)

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerData m_playerData;
     [SerializeField] private Rigidbody2D m_rb;
     [SerializeField] private Animator m_anim;
+    [SerializeField] private GameObject m_ultHitbox;
 
     [Header("Reflect Ability Settings")]
     [SerializeField] private float m_reflectForce = 20f;
@@ -228,6 +229,11 @@ public class PlayerController : MonoBehaviour
         {
             UpdateHealth(10);
         }
+    }
+
+    private void ToggleUltHitbox()
+    {
+        m_ultHitbox.SetActive(!m_ultHitbox.activeSelf);
     }
 
     private void OnDrawGizmosSelected()

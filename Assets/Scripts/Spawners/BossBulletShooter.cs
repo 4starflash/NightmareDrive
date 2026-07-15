@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletSpawner : MonoBehaviour
+public class BossBulletShooter : MonoBehaviour
 {
     enum ShooterType { SingleShot, MultiShot }
     [SerializeField] private ShooterType m_shooterType;
@@ -24,14 +24,13 @@ public class BulletSpawner : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private GameObject m_bulletPrefab;
 
-    private float m_timer;
 
     private void Start()
     {
         m_startAngle = -m_spreadAngle / 2f;
     }
 
-    /*
+
     private void Update()
     {
         if ((m_aimAtPlayer))
@@ -39,31 +38,25 @@ public class BulletSpawner : MonoBehaviour
             AimAtPlayer();
         }
 
-        m_timer += Time.deltaTime;
-        if (m_timer >= m_firingRate)
+        /*
+        if (m_rotationType == RotationType.Spin)
         {
-            if (m_rotationType == RotationType.Spin)
+            m_startAngle = m_startAngle + m_rotationAngle;
+
+            if (m_startAngle >= 360f)
             {
-                m_startAngle = m_startAngle + m_rotationAngle;
-                
-                if(m_startAngle >= 360f)
-                {
-                    m_startAngle = m_startAngle - 360f;
-                }
+                m_startAngle = m_startAngle - 360f;
             }
-
-            ChooseShootType();
-
-            m_timer = 0;
-        }   
+        }
+        */
     }
-    */
 
-    public void ShootBullets(GameObject bullet, int numberOfBullets, float spreadAngle)
+    public void ShootBullets(GameObject bullet, int numberOfBullets, float spreadAngle, bool aim)
     {
         m_bulletPrefab = bullet;
         m_numberOfBullets = numberOfBullets;
         m_spreadAngle = spreadAngle;
+        m_aimAtPlayer = aim;
         ChooseShootType();
     }
 

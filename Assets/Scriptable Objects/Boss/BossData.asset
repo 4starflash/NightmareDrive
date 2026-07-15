@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dbbfe69e3e7bd42b87313c40460614, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: 
-  m_maxHealth: 0
+  m_maxHealth: 100
   m_currentHealth: 0
   m_currentState: 0
