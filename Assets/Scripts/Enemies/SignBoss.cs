@@ -9,7 +9,7 @@ public class SignBoss : Boss
     {
         if(m_bossData.currentState == BossState.Attacking)
         {
-            //perform attack
+            
         }
     }
 

@@ -26,10 +26,12 @@ public class PlayerController : MonoBehaviour
     private bool m_flipped;
 
     public static Action<float> OnHealthChange;
+    public static Action<float> OnEnergyChange;
 
     private void Start()
     {
         m_playerData.currentHealth = m_playerData.maxHealth;
+        m_playerData.currentEnergy = m_playerData.maxEnergy;
         SetCurrentState(PlayerState.Idle);
     }
 
@@ -78,9 +80,10 @@ public class PlayerController : MonoBehaviour
             }
 
             // C to melee
-            if (Input.GetKeyDown(KeyCode.C) && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting)
+            if (Input.GetKeyDown(KeyCode.C) && m_playerData.currentState != PlayerState.Attacking && m_playerData.currentState != PlayerState.Reflecting && m_playerData.currentEnergy >= m_playerData.maxEnergy)
             {
                 SetCurrentState(PlayerState.Attacking);
+                UpdateEnergy(-m_playerData.maxEnergy);
             }
         }
     }
@@ -195,6 +198,21 @@ public class PlayerController : MonoBehaviour
         {
             SetCurrentState(PlayerState.Dead);
         }
+    }
+
+    private void UpdateEnergy(float value)
+    {
+        if(m_playerData.currentEnergy + value > m_playerData.maxEnergy)
+        {
+            m_playerData.currentEnergy = m_playerData.maxEnergy;
+        }
+        else
+        {
+            m_playerData.currentEnergy += value;
+        }
+
+        float currentRatio = m_playerData.currentEnergy / m_playerData.maxEnergy;
+        OnEnergyChange?.Invoke(currentRatio);
     }
 
     private void PlayerDeath()

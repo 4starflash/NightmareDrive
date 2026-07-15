@@ -5,11 +5,15 @@ public class BulletSpawner : MonoBehaviour
     enum ShooterType { SingleShot, MultiShot }
     [SerializeField] private ShooterType m_shooterType;
 
+    enum RotationType { NoSpin, Spin }
+    [SerializeField] private RotationType m_rotationType;
+
     [Header("Spawn Settings")]
     [SerializeField] private int m_numberOfBullets = 8;
     [SerializeField] private float m_radius = 3f;
     [SerializeField] private bool m_aimAtPlayer;
     [SerializeField] private float m_firingRate = .2f;
+    [SerializeField] private float m_rotationAngle;
 
     [Header("Shooter Attributes")]
     [SerializeField] private Transform m_firePoint;
@@ -37,17 +41,34 @@ public class BulletSpawner : MonoBehaviour
         m_timer += Time.deltaTime;
         if (m_timer >= m_firingRate)
         {
-            if (m_shooterType == ShooterType.SingleShot)
+            if (m_rotationType == RotationType.Spin)
             {
-                ShootSingleShot();
-            }
-            else if (m_shooterType == ShooterType.MultiShot)
-            {
-                ShootSpreadOfBullets();
+                m_startAngle = m_startAngle + m_rotationAngle;
+                
+                if(m_startAngle >= 360f)
+                {
+                    m_startAngle = m_startAngle - 360f;
+                }
             }
 
+            ChooseShootType();
+
             m_timer = 0;
-        } 
+        }
+
+        
+    }
+
+    private void ChooseShootType()
+    {
+        if (m_shooterType == ShooterType.SingleShot)
+        {
+            ShootSingleShot();
+        }
+        else if (m_shooterType == ShooterType.MultiShot)
+        {
+            ShootSpreadOfBullets();
+        }
     }
 
     private void ShootSingleShot()
