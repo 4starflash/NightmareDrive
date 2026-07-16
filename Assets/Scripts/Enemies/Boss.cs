@@ -17,6 +17,12 @@ public abstract class Boss : MonoBehaviour
     [SerializeField] protected Transform m_target;
     [ReadOnly][SerializeField] protected float m_stateTime;
 
+    protected virtual void Start()
+    {
+        m_bossData.currentHealth = m_bossData.maxHealth;
+        SetCurrentState(BossState.Idle);
+    }
+
     protected virtual void Update()
     {
         UpdateState();
@@ -78,6 +84,11 @@ public abstract class Boss : MonoBehaviour
 
         float currentRatio = m_bossData.currentHealth / m_bossData.maxHealth;
         //OnHealthChange?.Invoke(currentRatio);
+
+        if(m_bossData.currentHealth <= 0)
+        {
+            SetCurrentState(BossState.Dead);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -85,6 +96,12 @@ public abstract class Boss : MonoBehaviour
         if (collider.gameObject.CompareTag("PlayerDamageSource"))
         {
             UpdateHealth(10);
+        }
+
+        else if (collider.gameObject.CompareTag("PlayerUlt"))
+        {
+            UpdateHealth(20);
+            SetCurrentState(BossState.Stunned);
         }
     }
 }

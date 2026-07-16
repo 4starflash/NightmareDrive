@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_reflectRadius = 3f;
     [SerializeField] private LayerMask m_reflectableLayer;
 
+    [Header("Ult Settings")]
+    [SerializeField] private float m_ultForce = 5f;
+
     [Header("Player Bullet")]
     [SerializeField] private GameObject m_leftFacingBullet;
     [SerializeField] private GameObject m_rightFacingBullet;
@@ -195,7 +198,7 @@ public class PlayerController : MonoBehaviour
         float currentRatio = m_playerData.currentHealth / m_playerData.maxHealth;
         OnHealthChange?.Invoke(currentRatio);
 
-        if (m_playerData.currentHealth == 0)
+        if (m_playerData.currentHealth <= 0)
         {
             SetCurrentState(PlayerState.Dead);
         }
@@ -234,6 +237,11 @@ public class PlayerController : MonoBehaviour
     private void ToggleUltHitbox()
     {
         m_ultHitbox.SetActive(!m_ultHitbox.activeSelf);
+    }
+
+    private void UltKnockback()
+    {
+        m_rb.AddForce(-transform.right * m_ultForce, ForceMode2D.Impulse);
     }
 
     private void OnDrawGizmosSelected()

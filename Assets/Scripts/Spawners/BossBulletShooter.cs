@@ -33,10 +33,6 @@ public class BossBulletShooter : MonoBehaviour
 
     private void Update()
     {
-        if ((m_aimAtPlayer))
-        {
-            AimAtPlayer();
-        }
 
         /*
         if (m_rotationType == RotationType.Spin)
@@ -56,8 +52,17 @@ public class BossBulletShooter : MonoBehaviour
         m_bulletPrefab = bullet;
         m_numberOfBullets = numberOfBullets;
         m_spreadAngle = spreadAngle;
-        m_aimAtPlayer = aim;
-        ChooseShootType();
+
+        if (aim)
+        {
+            AimAtPlayer();
+        }
+        else if (!aim)
+        {
+            //set start rotation
+        }
+
+            ChooseShootType();
     }
 
     private void ChooseShootType()

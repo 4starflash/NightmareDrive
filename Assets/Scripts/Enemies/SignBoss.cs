@@ -8,6 +8,13 @@ public class SignBoss : Boss
     [Header("Bullet Types")]
     [SerializeField] private GameObject[] bulletType;
 
+    private int m_randomAttack;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void UpdateState()
     {
         switch (m_bossData.currentState)
@@ -52,19 +59,35 @@ public class SignBoss : Boss
         else
         {
             SetCurrentState(BossState.Attacking);
+            m_randomAttack = UnityEngine.Random.Range(0, 2);
         }
     }
 
     protected override void AttackingBehavior()
     {
         m_rb.velocity = Vector2.zero;
-        m_bulletShooter.ShootBullets(bulletType[0], 5, 30f, true);
+
+        if(m_randomAttack == 0)
+        {
+            m_bulletShooter.ShootBullets(bulletType[0], 5, 30f, true);
+        }
+        else if(m_randomAttack == 1)
+        {
+            m_bulletShooter.ShootBullets(bulletType[1], 11, 360f, true);
+        }
+
         SetCurrentState(BossState.Idle);
+
     }
 
     protected override void StunnedBehavior()
     {
+        m_rb.velocity = Vector2.zero;
 
+        if (m_stateTime >= 3f)
+        {
+            SetCurrentState(BossState.Idle);
+        }
     }
 
     protected override void DeadBehavior()
