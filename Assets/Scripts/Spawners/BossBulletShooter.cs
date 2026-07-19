@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BossBulletShooter : MonoBehaviour
 {
-    enum ShooterType { SingleShot, MultiShot }
+    public enum ShooterType { SingleShot, MultiShot }
     [SerializeField] private ShooterType m_shooterType;
 
     enum RotationType { NoSpin, Spin }
@@ -47,8 +47,9 @@ public class BossBulletShooter : MonoBehaviour
         */
     }
 
-    public void ShootBullets(GameObject bullet, int numberOfBullets, float spreadAngle, bool aim)
+    public void ShootBullets(ShooterType type, GameObject bullet, int numberOfBullets, float spreadAngle, bool aim)
     {
+        m_shooterType = type;
         m_bulletPrefab = bullet;
         m_numberOfBullets = numberOfBullets;
         m_spreadAngle = spreadAngle;

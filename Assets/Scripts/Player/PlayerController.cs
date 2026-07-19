@@ -241,7 +241,8 @@ public class PlayerController : MonoBehaviour
 
     private void UltKnockback()
     {
-        m_rb.AddForce(-transform.right * m_ultForce, ForceMode2D.Impulse);
+        if (!m_flipped) m_rb.AddForce(-transform.right * m_ultForce, ForceMode2D.Impulse);
+        else m_rb.AddForce(transform.right * m_ultForce, ForceMode2D.Impulse);
     }
 
     private void OnDrawGizmosSelected()

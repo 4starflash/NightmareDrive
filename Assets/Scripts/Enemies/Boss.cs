@@ -17,6 +17,8 @@ public abstract class Boss : MonoBehaviour
     [SerializeField] protected Transform m_target;
     [ReadOnly][SerializeField] protected float m_stateTime;
 
+    protected bool m_flipped;
+
     protected virtual void Start()
     {
         m_bossData.currentHealth = m_bossData.maxHealth;
@@ -89,6 +91,24 @@ public abstract class Boss : MonoBehaviour
         {
             SetCurrentState(BossState.Dead);
         }
+    }
+
+    protected void CheckFlip()
+    {
+        if (m_target != null)
+        {
+            if (m_target.position.x >= transform.position.x && !m_flipped) FlipBoss();
+            else if (m_target.position.x < transform.position.x && m_flipped) FlipBoss();
+        }
+    }
+
+    protected void FlipBoss()
+    {
+        m_flipped = !m_flipped;
+
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

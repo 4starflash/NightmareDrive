@@ -31,7 +31,7 @@ public class BulletSpawner : MonoBehaviour
         m_startAngle = -m_spreadAngle / 2f;
     }
 
-    /*
+    
     private void Update()
     {
         if ((m_aimAtPlayer))
@@ -57,15 +57,7 @@ public class BulletSpawner : MonoBehaviour
             m_timer = 0;
         }   
     }
-    */
-
-    public void ShootBullets(GameObject bullet, int numberOfBullets, float spreadAngle)
-    {
-        m_bulletPrefab = bullet;
-        m_numberOfBullets = numberOfBullets;
-        m_spreadAngle = spreadAngle;
-        ChooseShootType();
-    }
+    
 
     private void ChooseShootType()
     {

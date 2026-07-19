@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5811284399469681814}
   - component: {fileID: -784375266372893125}
   m_Layer: 6
-  m_Name: Bullet 2
+  m_Name: EyeBulletSmall
   m_TagString: DamageSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1903423681, guid: 48507bad0b14b9a4da192a5bb5435d01, type: 3}
+  m_Sprite: {fileID: 581684508, guid: 35b5c6e74eec50541bf9bd8adb330516, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,8 +146,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.028885158, y: 0.00549138}
-  m_Size: {x: 0.39341033, y: 0.14307271}
+  m_Offset: {x: -0.0016131402, y: 0.0008161667}
+  m_Size: {x: 0.2770978, y: 0.2770978}
   m_Direction: 1
 --- !u!114 &-784375266372893125
 MonoBehaviour:
